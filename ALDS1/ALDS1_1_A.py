@@ -1,3 +1,5 @@
+# insertion sort
+
 n = int(input())
 l_n = list(map(int, input().split(" ")))
 print(" ".join(map(str, l_n)))
