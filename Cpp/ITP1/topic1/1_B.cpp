@@ -2,11 +2,10 @@
 
 int main(void)
 {
+  int x;
+  std::cin >> x;
 
-    int x;
-    std::cin >> x;
+  std::cout << x * x * x << std::endl;
 
-    std::cout << x * x * x << std::endl;
-
-    return 0;
+  return 0;
 }
