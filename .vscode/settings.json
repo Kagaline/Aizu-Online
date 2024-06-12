@@ -55,7 +55,13 @@
         "xhash": "cpp",
         "xtree": "cpp",
         "set": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "stack": "cpp",
+        "deque": "cpp",
+        "queue": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "bitset": "cpp"
     },
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
