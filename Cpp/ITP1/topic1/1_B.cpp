@@ -1,7 +1,7 @@
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
+
   int x;
   std::cin >> x;
 

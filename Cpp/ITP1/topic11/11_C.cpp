@@ -7,15 +7,14 @@
 #include <string>
 #include <vector>
 
-class Dice
-{
+class Dice {
 private:
-  int A_;  // above.
-  int B_;  // bottom.
-  int N_;  // north.
-  int E_;  // east.
-  int W_;  // west.
-  int S_;  // south.
+  int A_; // above.
+  int B_; // bottom.
+  int N_; // north.
+  int E_; // east.
+  int W_; // west.
+  int S_; // south.
 
 public:
   Dice(int a, int s, int e, int w, int n, int b);
@@ -52,99 +51,82 @@ Dice::Dice(int a, int s, int e, int w, int n, int b) : A_(a), B_(b), N_(n), E_(e
 Dice::~Dice() {}
 
 // rotation.
-void Dice::move_n(void)
-{
+void Dice::move_n(void) {
   int tmp = A_;
-  A_ = S_;
-  S_ = B_;
-  B_ = N_;
-  N_ = tmp;
+  A_      = S_;
+  S_      = B_;
+  B_      = N_;
+  N_      = tmp;
 }
-void Dice::move_e(void)
-{
+void Dice::move_e(void) {
   int tmp = A_;
-  A_ = W_;
-  W_ = B_;
-  B_ = E_;
-  E_ = tmp;
+  A_      = W_;
+  W_      = B_;
+  B_      = E_;
+  E_      = tmp;
 }
-void Dice::move_w(void)
-{
+void Dice::move_w(void) {
   int tmp = A_;
-  A_ = E_;
-  E_ = B_;
-  B_ = W_;
-  W_ = tmp;
+  A_      = E_;
+  E_      = B_;
+  B_      = W_;
+  W_      = tmp;
 }
-void Dice::move_s(void)
-{
+void Dice::move_s(void) {
   int tmp = A_;
-  A_ = N_;
-  N_ = B_;
-  B_ = S_;
-  S_ = tmp;
+  A_      = N_;
+  N_      = B_;
+  B_      = S_;
+  S_      = tmp;
 }
-void Dice::turn_nesw(void)
-{
+void Dice::turn_nesw(void) {
   int tmp = N_;
-  N_ = E_;
-  E_ = S_;
-  S_ = W_;
-  W_ = tmp;
+  N_      = E_;
+  E_      = S_;
+  S_      = W_;
+  W_      = tmp;
 }
-void Dice::turn_nwse(void)
-{
+void Dice::turn_nwse(void) {
   int tmp = N_;
-  N_ = W_;
-  W_ = S_;
-  S_ = E_;
-  E_ = tmp;
+  N_      = W_;
+  W_      = S_;
+  S_      = E_;
+  E_      = tmp;
 }
 
 // getter.
-int Dice::get_above(void)
-{
+int Dice::get_above(void) {
   return A_;
 }
-int Dice::get_bottom(void)
-{
+int Dice::get_bottom(void) {
   return B_;
 }
-int Dice::get_north(void)
-{
+int Dice::get_north(void) {
   return N_;
 }
-int Dice::get_east(void)
-{
+int Dice::get_east(void) {
   return E_;
 }
-int Dice::get_west(void)
-{
+int Dice::get_west(void) {
   return W_;
 }
-int Dice::get_south(void)
-{
+int Dice::get_south(void) {
   return S_;
 }
 
-bool Dice::check_all_aspect_is_same(Dice other)
-{
-  if (A_ == other.get_above() && B_ == other.get_bottom() && N_ == other.get_north() &&
-      E_ == other.get_east() && W_ == other.get_west() && S_ == other.get_south())
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+bool Dice::check_all_aspect_is_same(Dice other) {
+
+  bool all_aspect_is_same =
+      (A_ == other.get_above() && B_ == other.get_bottom() && N_ == other.get_north() &&
+       E_ == other.get_east() && W_ == other.get_west() && S_ == other.get_south());
+
+  return all_aspect_is_same;
 }
 
 // is_same.
-bool Dice::is_same(Dice other)
-{
-  // 向きを全列挙する -> 同じものがないか探す.
+bool Dice::is_same(Dice other) {
 
+  // 向きを全列挙する -> 同じものがないか探す.
   bool result = false;
 
   // *S起点.
@@ -241,65 +223,44 @@ bool Dice::is_same(Dice other)
 }
 
 // sequencial movements.
-void Dice::read_instructions(std::string instructions)
-{
-  for (auto &x : instructions)
-  {
-    if (x == 'N')
-    {
+void Dice::read_instructions(std::string instructions) {
+  for (auto &x : instructions) {
+    if (x == 'N') {
       move_n();
-    }
-    else if (x == 'E')
-    {
+    } else if (x == 'E') {
       move_e();
-    }
-    else if (x == 'W')
-    {
+    } else if (x == 'W') {
       move_w();
-    }
-    else if (x == 'S')
-    {
+    } else if (x == 'S') {
       move_s();
     }
   }
 }
 
-void Dice::set_perspective(int above, int south)
-{
+void Dice::set_perspective(int above, int south) {
   // 前面を合わせる.
-  if (south == A_)
-  {
+  if (south == A_) {
     move_s();
-  }
-  else if (south == N_)
-  {
+  } else if (south == N_) {
     move_s();
     move_s();
-  }
-  else if (south == E_)
-  {
+  } else if (south == E_) {
     move_w();
     move_s();
-  }
-  else if (south == W_)
-  {
+  } else if (south == W_) {
     move_e();
     move_s();
-  }
-  else if (south == B_)
-  {
+  } else if (south == B_) {
     move_n();
   }
 
   // 上面も合わせる.
-  while (above != A_)
-  {
+  while (above != A_) {
     move_e();
   }
 }
 
-int main(void)
-{
+int main(void) {
   int a, s, e, w, n, b;
   std::cin >> a >> s >> e >> w >> n >> b;
   Dice dice1(a, s, e, w, n, b);
@@ -307,12 +268,9 @@ int main(void)
   std::cin >> a >> s >> e >> w >> n >> b;
   Dice dice2(a, s, e, w, n, b);
 
-  if (dice1.is_same(dice2))
-  {
+  if (dice1.is_same(dice2)) {
     std::cout << "Yes" << std::endl;
-  }
-  else
-  {
+  } else {
     std::cout << "No" << std::endl;
   }
 

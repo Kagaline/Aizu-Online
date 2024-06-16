@@ -6,46 +6,42 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
-  while (true)
-  {
-    int n;
-    std::cin >> n;
+int main(void) {
 
-    if (n == 0)
-    {
+  while (true) {
+    int num_students;
+    std::cin >> num_students;
+
+    if (num_students == 0) {
       break;
     }
 
-    std::vector<double> scores;
-    for (int i = 0; i < n; ++i)
-    {
-      double x;
+    std::vector<double> scores(num_students, 0);
+    for (auto &x : scores) {
       std::cin >> x;
-      scores.push_back(x);
     }
 
-    double sum = 0;
-    double mean = 0;
-    double dis = 0;
-    double st_dis = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-      sum += scores.at(i);
+    // 合計.
+    double sum_of_score = 0;
+    for (int i = 0; i < num_students; i++) {
+      sum_of_score += scores.at(i);
     }
-    mean = sum / n;
 
-    for (int i = 0; i < n; i++)
-    {
-      dis += std::pow(scores.at(i) - mean, 2);
+    // 平均.
+    double mean_score = sum_of_score / num_students;
+
+    // 分散.
+    double distribution_of_score = 0;
+    for (int i = 0; i < num_students; i++) {
+      distribution_of_score += std::pow(scores.at(i) - mean_score, 2);
     }
-    dis /= n;
+    distribution_of_score /= num_students;
 
-    st_dis = std::sqrt(dis);
+    // 標準偏差.
+    double standard_distribution_of_score = std::sqrt(distribution_of_score);
 
-    std::cout << std::fixed << std::setprecision(15) << st_dis << std::endl;
+    std::cout << std::fixed << std::setprecision(15) << standard_distribution_of_score
+              << std::endl;
   }
   return 0;
 }

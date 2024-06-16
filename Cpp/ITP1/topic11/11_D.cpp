@@ -7,15 +7,14 @@
 #include <string>
 #include <vector>
 
-class Dice
-{
+class Dice {
 private:
-  int A_;  // above.
-  int B_;  // bottom.
-  int N_;  // north.
-  int E_;  // east.
-  int W_;  // west.
-  int S_;  // south.
+  int A_; // above.
+  int B_; // bottom.
+  int N_; // north.
+  int E_; // east.
+  int W_; // west.
+  int S_; // south.
 
 public:
   Dice(int a, int s, int e, int w, int n, int b);
@@ -52,97 +51,80 @@ Dice::Dice(int a, int s, int e, int w, int n, int b) : A_(a), B_(b), N_(n), E_(e
 Dice::~Dice() {}
 
 // rotation.
-void Dice::move_n(void)
-{
+void Dice::move_n(void) {
   int tmp = A_;
-  A_ = S_;
-  S_ = B_;
-  B_ = N_;
-  N_ = tmp;
+  A_      = S_;
+  S_      = B_;
+  B_      = N_;
+  N_      = tmp;
 }
-void Dice::move_e(void)
-{
+void Dice::move_e(void) {
   int tmp = A_;
-  A_ = W_;
-  W_ = B_;
-  B_ = E_;
-  E_ = tmp;
+  A_      = W_;
+  W_      = B_;
+  B_      = E_;
+  E_      = tmp;
 }
-void Dice::move_w(void)
-{
+void Dice::move_w(void) {
   int tmp = A_;
-  A_ = E_;
-  E_ = B_;
-  B_ = W_;
-  W_ = tmp;
+  A_      = E_;
+  E_      = B_;
+  B_      = W_;
+  W_      = tmp;
 }
-void Dice::move_s(void)
-{
+void Dice::move_s(void) {
   int tmp = A_;
-  A_ = N_;
-  N_ = B_;
-  B_ = S_;
-  S_ = tmp;
+  A_      = N_;
+  N_      = B_;
+  B_      = S_;
+  S_      = tmp;
 }
-void Dice::turn_nesw(void)
-{
+void Dice::turn_nesw(void) {
   int tmp = N_;
-  N_ = E_;
-  E_ = S_;
-  S_ = W_;
-  W_ = tmp;
+  N_      = E_;
+  E_      = S_;
+  S_      = W_;
+  W_      = tmp;
 }
-void Dice::turn_nwse(void)
-{
+void Dice::turn_nwse(void) {
   int tmp = N_;
-  N_ = W_;
-  W_ = S_;
-  S_ = E_;
-  E_ = tmp;
+  N_      = W_;
+  W_      = S_;
+  S_      = E_;
+  E_      = tmp;
 }
 
 // getter.
-int Dice::get_above(void)
-{
+int Dice::get_above(void) {
   return A_;
 }
-int Dice::get_bottom(void)
-{
+int Dice::get_bottom(void) {
   return B_;
 }
-int Dice::get_north(void)
-{
+int Dice::get_north(void) {
   return N_;
 }
-int Dice::get_east(void)
-{
+int Dice::get_east(void) {
   return E_;
 }
-int Dice::get_west(void)
-{
+int Dice::get_west(void) {
   return W_;
 }
-int Dice::get_south(void)
-{
+int Dice::get_south(void) {
   return S_;
 }
 
-bool Dice::check_all_aspect_is_same(Dice other)
-{
-  if (A_ == other.get_above() && B_ == other.get_bottom() && N_ == other.get_north() &&
-      E_ == other.get_east() && W_ == other.get_west() && S_ == other.get_south())
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+bool Dice::check_all_aspect_is_same(Dice other) {
+
+  bool all_aspect_is_same =
+      (A_ == other.get_above() && B_ == other.get_bottom() && N_ == other.get_north() &&
+       E_ == other.get_east() && W_ == other.get_west() && S_ == other.get_south());
+
+  return all_aspect_is_same;
 }
 
 // is_same.
-bool Dice::is_same(Dice other)
-{
+bool Dice::is_same(Dice other) {
   // 向きを全列挙する -> 同じものがないか探す.
 
   bool result = false;
@@ -241,38 +223,27 @@ bool Dice::is_same(Dice other)
 }
 
 // sequencial movements.
-void Dice::read_instructions(std::string instructions)
-{
-  for (auto &x : instructions)
-  {
-    if (x == 'N')
-    {
+void Dice::read_instructions(std::string instructions) {
+  for (auto &x : instructions) {
+    if (x == 'N') {
       move_n();
-    }
-    else if (x == 'E')
-    {
+    } else if (x == 'E') {
       move_e();
-    }
-    else if (x == 'W')
-    {
+    } else if (x == 'W') {
       move_w();
-    }
-    else if (x == 'S')
-    {
+    } else if (x == 'S') {
       move_s();
     }
   }
 }
 
-int main(void)
-{
+int main(void) {
   int num_dices;
   std::cin >> num_dices;
 
   std::vector<Dice> dices;
 
-  for (int i = 0; i < num_dices; i++)
-  {
+  for (int i = 0; i < num_dices; i++) {
     int a, s, e, w, n, b;
     std::cin >> a >> s >> e >> w >> n >> b;
     Dice dice(a, s, e, w, n, b);
@@ -285,20 +256,15 @@ int main(void)
   Dice diceA = dices.at(0);
 
   // 残りのすべてのダイスが同じである.
-  for (int i = 1; i < dices.size(); i++)
-  {
-    if (diceA.is_same(dices.at(i)))
-    {
+  for (int i = 1; i < dices.size(); i++) {
+    if (diceA.is_same(dices.at(i))) {
       is_all_diff = false;
     }
   }
 
-  if (is_all_diff)
-  {
+  if (is_all_diff) {
     std::cout << "Yes" << std::endl;
-  }
-  else
-  {
+  } else {
     std::cout << "No" << std::endl;
   }
   return 0;

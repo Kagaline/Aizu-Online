@@ -6,10 +6,10 @@
 #include <string>
 #include <vector>
 
+// 円周率.
 const double PI = std::acos(-1);
 
-class Triangle
-{
+class Triangle {
 private:
   double a_;
   double b_;
@@ -25,22 +25,18 @@ public:
 
 Triangle::Triangle(double a, double b, double c) : a_(a), b_(b), rad_(c) {}
 Triangle::~Triangle() {}
-double Triangle::get_area()
-{
+double Triangle::get_area() {
   return a_ * b_ * std::sin(rad_) / 2;
 }
-double Triangle::get_perimeter()
-{
+double Triangle::get_perimeter() {
   double c_ = std::sqrt(a_ * a_ + b_ * b_ - 2 * a_ * b_ * std::cos(rad_));
   return a_ + b_ + c_;
 }
-double Triangle::get_height()
-{
+double Triangle::get_height() {
   return b_ * std::sin(rad_);
 }
 
-int main(void)
-{
+int main(void) {
   int a, b, c;
   std::cin >> a >> b >> c;
 

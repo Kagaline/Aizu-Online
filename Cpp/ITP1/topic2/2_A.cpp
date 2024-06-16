@@ -1,20 +1,15 @@
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
+
   int a, b;
   std::cin >> a >> b;
 
-  if (a > b)
-  {
+  if (a > b) {
     std::cout << "a > b" << std::endl;
-  }
-  else if (a == b)
-  {
+  } else if (a == b) {
     std::cout << "a == b" << std::endl;
-  }
-  else if (a < b)
-  {
+  } else if (a < b) {
     std::cout << "a < b" << std::endl;
   }
 

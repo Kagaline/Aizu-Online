@@ -1,37 +1,30 @@
 #include <iomanip>
 #include <iostream>
 
-int main(void)
-{
-  int a, b;
-  char op;
+int main(void) {
 
-  while (true)
-  {
+  while (true) {
+    int a, b;
+    char op;
     std::cin >> a >> op >> b;
 
-    if (op == '?')
-    {
+    if (op == '?') {
       break;
     }
 
-    if (op == '+')
-    {
+    if (op == '+') {
       std::cout << a + b << std::endl;
     }
 
-    if (op == '-')
-    {
+    if (op == '-') {
       std::cout << a - b << std::endl;
     }
 
-    if (op == '*')
-    {
+    if (op == '*') {
       std::cout << a * b << std::endl;
     }
 
-    if (op == '/')
-    {
+    if (op == '/') {
       std::cout << a / b << std::endl;
     }
   }

@@ -2,80 +2,73 @@
 #include <iostream>
 #include <vector>
 
-struct Student_Scores
-{
-  int mid_exam;
-  int final_exam;
-  int re_exam;
+class Student_Scores {
+private:
+  int mid_;
+  int final_;
+  int re_;
+  char grade_;
+
+  // 成績をつける.
+  void set_grade();
+
+public:
+  Student_Scores(int mid_exam_score, int final_exam_score, int re_exam_score) {
+    mid_   = mid_exam_score;
+    final_ = final_exam_score;
+    re_    = re_exam_score;
+    set_grade();
+  };
+
+  char get_grade() {
+    return grade_;
+  };
 };
 
-char judge(Student_Scores student_score)
-{
-  int mid_score = student_score.mid_exam;
-  int fin_score = student_score.final_exam;
-  int re_score = student_score.re_exam;
-
-  char result = '!';
+void Student_Scores::set_grade() {
 
   // 合計点による成績.
-  if ((mid_score + fin_score) >= 80)
-  {
-    result = 'A';
-  }
-  else if ((mid_score + fin_score) >= 65)
-  {
-    result = 'B';
-  }
-  else if ((mid_score + fin_score) >= 50)
-  {
-    result = 'C';
-  }
-  else if ((mid_score + fin_score) >= 30)
-  {
-    result = 'D';
-
-    // 再試験の成績がいい場合の特例措置.
-    if (re_score >= 50)
-    {
-      result = 'C';
+  if ((mid_ + final_) >= 80) {
+    grade_ = 'A';
+  } else if ((mid_ + final_) >= 65) {
+    grade_ = 'B';
+  } else if ((mid_ + final_) >= 50) {
+    grade_ = 'C';
+  } else if ((mid_ + final_) >= 30) {
+    grade_ = 'D';
+    if (re_ >= 50) {
+      grade_ = 'C'; // 再試験の成績がいい場合の特例措置.
     }
-  }
-  else
-  {
-    result = 'F';
+  } else {
+    grade_ = 'F';
   }
 
   // どちらかを欠席した場合.
-  if (mid_score == -1 || fin_score == -1)
-  {
-    result = 'F';
+  if (mid_ == -1 || final_ == -1) {
+    grade_ = 'F';
   }
+};
 
-  return result;
-}
+int main(void) {
 
-int main(void)
-{
   std::vector<Student_Scores> students;
 
-  while (true)
-  {
-    int m, f, r;
-    std::cin >> m >> f >> r;
+  while (true) {
+
+    int mid_exam_score, final_exam_score, re_exam_score;
+    std::cin >> mid_exam_score >> final_exam_score >> re_exam_score;
 
     // 終了条件.
-    if (m == -1 && f == -1 && r == -1)
-    {
+    if (mid_exam_score == -1 && final_exam_score == -1 && re_exam_score == -1) {
       break;
     }
 
-    Student_Scores student = {m, f, r};
+    Student_Scores student = {mid_exam_score, final_exam_score, re_exam_score};
     students.push_back(student);
   }
 
-  for (int i = 0; i < students.size(); i++)
-  {
-    std::cout << judge(students.at(i)) << std::endl;
+  for (int i = 0; i < students.size(); i++) {
+    std::cout << students.at(i).get_grade() << std::endl;
   }
   return 0;
 }

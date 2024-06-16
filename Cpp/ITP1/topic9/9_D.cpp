@@ -5,43 +5,35 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   std::string str;
   std::cin >> str;
 
-  int queries;
-  std::cin >> queries;
+  int num_queries;
+  std::cin >> num_queries;
 
-  for (int i = 0; i < queries; ++i)
-  {
+  for (int i = 0; i < num_queries; ++i) {
     std::string op;
     int a, b;
     std::cin >> op >> a >> b;
 
-    auto a_begin_itr = str.begin() + a;
-    auto b_end_itr = str.begin() + b + 1;
+    auto begin_itr = str.begin() + a;
+    auto end_itr   = str.begin() + b + 1;
 
-    if (op == "print")
-    {
-      for (auto itr = a_begin_itr; itr != b_end_itr; ++itr)
-      {
+    if (op == "print") {
+      for (auto itr = begin_itr; itr != end_itr; ++itr) {
         std::cout << *itr;
       }
       std::cout << std::endl;
-    }
-    else if (op == "reverse")
-    {
-      std::reverse(a_begin_itr, b_end_itr);
-    }
-    else if (op == "replace")
-    {
+    } else if (op == "reverse") {
+      std::reverse(begin_itr, end_itr);
+    } else if (op == "replace") {
       std::string p;
       std::cin >> p;
 
       auto p_itr = p.begin();
-      for (auto itr = a_begin_itr; itr != b_end_itr; ++itr, ++p_itr)
-      {
+      for (auto itr = begin_itr; itr != end_itr; ++itr, ++p_itr) {
         *itr = *p_itr;
       }
     }

@@ -1,7 +1,7 @@
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
+
   // 入力は秒.
   int seconds;
   std::cin >> seconds;

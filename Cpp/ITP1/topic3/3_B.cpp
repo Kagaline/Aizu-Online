@@ -1,16 +1,15 @@
 #include <iostream>
 
-int main(void)
-{
-  int x;
+int main(void) {
 
   int case_counter = 1;
-  while (true)
-  {
+
+  while (true) {
+
+    int x;
     std::cin >> x;
 
-    if (x == 0)
-    {
+    if (x == 0) {
       break;
     }
 

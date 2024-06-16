@@ -6,42 +6,21 @@
 #include <string>
 #include <vector>
 
-double calc_miconfsky_distance(std::vector<double>& x, std::vector<double>& y, double p)
-{
-  // p == p
-  int array_length = x.size();
+double calc_miconfsky_distance(std::vector<double>& x, std::vector<double>& y, double p);
 
-  double dis_p = 0;
-  for (int i = 0; i < array_length; ++i)
-  {
-    double absolute_distance = std::abs(x.at(i) - y.at(i));
-    dis_p += std::pow(absolute_distance, p);
-  }
-  dis_p = std::pow(dis_p, 1 / p);
+int main(void) {
 
-  return dis_p;
-}
-
-int main(void)
-{
   int n;
   std::cin >> n;
 
-  std::vector<double> x;
-  std::vector<double> y;
-
-  for (int i = 0; i < n; ++i)
-  {
-    double x_;
-    std::cin >> x_;
-    x.push_back(x_);
+  std::vector<double> x(n, 0);
+  for (auto& _x : x) {
+    std::cin >> _x;
   }
 
-  for (int i = 0; i < n; ++i)
-  {
-    double y_;
-    std::cin >> y_;
-    y.push_back(y_);
+  std::vector<double> y(n, 0);
+  for (auto& _y : y) {
+    std::cin >> _y;
   }
 
   // p == 1
@@ -55,11 +34,9 @@ int main(void)
 
   // p == inf
   double dis_inf = -10000000000;
-  for (int i = 0; i < n; ++i)
-  {
+  for (int i = 0; i < n; ++i) {
     double distance = std::abs(x.at(i) - y.at(i));
-    if (dis_inf < distance)
-    {
+    if (dis_inf < distance) {
       dis_inf = distance;
     }
   }
@@ -69,4 +46,18 @@ int main(void)
             << dis_3 << "\n"
             << dis_inf << std::endl;
   return 0;
+}
+
+double calc_miconfsky_distance(std::vector<double>& x, std::vector<double>& y, double p) {
+  // p == p
+  int array_length = x.size();
+
+  double dis_p = 0;
+  for (int i = 0; i < array_length; ++i) {
+    double absolute_distance = std::abs(x.at(i) - y.at(i));
+    dis_p += std::pow(absolute_distance, p);
+  }
+  dis_p = std::pow(dis_p, 1 / p);
+
+  return dis_p;
 }

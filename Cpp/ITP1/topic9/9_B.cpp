@@ -4,33 +4,30 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
-  while (true)
-  {
-    // 1回文のケース.
-    std::string input;
-    std::cin >> input;
+int main(void) {
 
-    if (input == "-")
-    {
+  while (true) {
+
+    std::string deck;
+    std::cin >> deck;
+
+    if (deck == "-") {
       break;
     }
 
-    int m;
-    std::cin >> m;
+    int shuffling_times;
+    std::cin >> shuffling_times;
 
-    for (int i = 0; i < m; i++)
-    {
+    for (int i = 0; i < shuffling_times; i++) {
       int h;
       std::cin >> h;
 
-      std::string tmp = input.substr(h, input.size() - h) + input.substr(0, h);
-
-      input = tmp;
+      // shuffling.
+      deck = deck.substr(h, deck.size() - h) + deck.substr(0, h);
     }
 
-    std::cout << input << std::endl;
+    // output.
+    std::cout << deck << std::endl;
   }
   return 0;
 }

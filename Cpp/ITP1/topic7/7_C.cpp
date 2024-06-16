@@ -2,34 +2,31 @@
 #include <iostream>
 #include <vector>
 
-int main(void)
-{
-  int r, c;
-  std::cin >> r >> c;
+int main(void) {
 
-  std::vector<std::vector<int>> sheet(r + 1, std::vector<int>(c + 1, 0));
+  int num_rows, num_cols;
+  std::cin >> num_rows >> num_cols;
 
-  for (int i = 0; i < r; ++i)
-  {
-    for (int j = 0; j < c; ++j)
-    {
+  std::vector<std::vector<int>> sheet(num_rows + 1, std::vector<int>(num_cols + 1, 0));
+
+  for (int i = 0; i < num_rows; ++i) {
+    for (int j = 0; j < num_cols; ++j) {
       int x;
       std::cin >> x;
 
-      sheet.at(i).at(j) = x;
-      sheet.at(i).at(c) += x;
-      sheet.at(r).at(j) += x;
-      sheet.at(r).at(c) += x;
+      sheet.at(i).at(j) = x;                // セルに代入.
+      sheet.at(i).at(num_cols) += x;        // 行の合計に加算する.
+      sheet.at(num_rows).at(j) += x;        // 列の合計に加算する.
+      sheet.at(num_rows).at(num_cols) += x; // 表の合計に加算する.
     }
   }
 
-  for (int i = 0; i <= r; ++i)
-  {
-    for (int j = 0; j <= c; ++j)
-    {
+  for (int i = 0; i <= num_rows; ++i) {
+    for (int j = 0; j <= num_cols; ++j) {
+
       std::cout << sheet.at(i).at(j);
-      if (j != c)
-      {
+
+      if (j != num_cols) {
         std::cout << " ";
       }
     }

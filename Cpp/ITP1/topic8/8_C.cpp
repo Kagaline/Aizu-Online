@@ -5,33 +5,25 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
-  std::map<char, int> dict;
-  for (char letter = 'a'; letter <= 'z'; ++letter)
-  {
-    dict[letter] = 0;
+int main(void) {
+
+  std::map<char, int> alphabet_dict;
+  for (char letter = 'a'; letter <= 'z'; ++letter) {
+    alphabet_dict[letter] = 0;
   }
 
   std::string s;
 
-  while (std::getline(std::cin, s))
-  {
-    for (auto x : s)
-    {
-      if (std::isupper(x))
-      {
+  while (std::getline(std::cin, s)) {
+    for (auto x : s) {
+      if (std::isupper(x)) {
         x = std::tolower(x);
-        dict[x] += 1;
       }
-      else if (std::islower(x))
-      {
-        dict[x] += 1;
-      }
+      alphabet_dict[x] += 1;
     }
   }
-  for (auto itr = dict.begin(); itr != dict.end(); ++itr)
-  {
+
+  for (auto itr = alphabet_dict.begin(); itr != alphabet_dict.end(); ++itr) {
     std::cout << (*itr).first << " : " << (*itr).second << std::endl;
   }
   return 0;

@@ -1,34 +1,31 @@
 #include <iomanip>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
+
   int n;
   std::cin >> n;
 
-  int max = -1000000;
-  int min = 1000000;
-  long int sum = 0;
+  int range_maximum    = -1000000;
+  int range_minimum    = 1000000;
+  long int range_total = 0;
 
-  for (int i = 0; i < n; ++i)
-  {
+  for (int i = 0; i < n; ++i) {
     int x;
     std::cin >> x;
 
-    if (x < min)
-    {
-      min = x;
+    if (x < range_minimum) {
+      range_minimum = x;
     }
 
-    if (x > max)
-    {
-      max = x;
+    if (x > range_maximum) {
+      range_maximum = x;
     }
 
-    sum += x;
+    range_total += x;
   }
 
-  std::cout << min << " " << max << " " << sum << std::endl;
+  std::cout << range_minimum << " " << range_maximum << " " << range_total << std::endl;
 
   return 0;
 }

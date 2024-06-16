@@ -1,8 +1,8 @@
 #include <iomanip>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
+
   double a, b;
   std::cin >> a >> b;
 

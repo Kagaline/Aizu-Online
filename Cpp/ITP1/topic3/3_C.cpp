@@ -1,20 +1,17 @@
 #include <iostream>
 
-int main(void)
-{
-  int x, y;
+int main(void) {
 
-  while (true)
-  {
+  while (true) {
+
+    int x, y;
     std::cin >> x >> y;
 
-    if (x == 0 && y == 0)
-    {
+    if (x == 0 && y == 0) {
       break;
     }
 
-    if (x > y)
-    {
+    if (x > y) {
       std::swap(x, y);
     }
 

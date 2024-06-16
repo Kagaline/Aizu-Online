@@ -2,29 +2,22 @@
 #include <iostream>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int n;
   std::cin >> n;
 
-  std::vector<int> sequence;
-
-  for (int i = 0; i < n; ++i)
-  {
-    int x;
+  std::vector<int> sequence(n, 0);
+  for (auto &x : sequence) {
     std::cin >> x;
-    sequence.push_back(x);
   }
 
-  for (int i = n - 1; i >= 0; --i)
-  {
-    std::cout << sequence.at(i);
-    if (i != 0)
-    {
+  for (auto itr = sequence.rbegin(); itr != sequence.rend(); itr++) {
+    std::cout << *itr;
+    if (itr != (sequence.rend() - 1)) {
       std::cout << " ";
     }
   }
-
   std::cout << std::endl;
 
   return 0;

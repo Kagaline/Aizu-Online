@@ -1,8 +1,9 @@
 #include <iomanip>
 #include <iostream>
 
-int main(void)
-{
+int main(void) {
+
+  // 円周率.
   const double PI = 3.141592653589;
 
   double r;

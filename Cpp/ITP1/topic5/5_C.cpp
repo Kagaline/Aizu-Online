@@ -1,29 +1,22 @@
 #include <iomanip>
 #include <iostream>
 
-int main(void)
-{
-  int H, W;
+int main(void) {
 
-  while (true)
-  {
-    std::cin >> H >> W;
+  while (true) {
 
-    if (H == 0 && W == 0)
-    {
+    int height, width;
+    std::cin >> height >> width;
+
+    if (height == 0 && width == 0) {
       break;
     }
 
-    for (int y = 0; y < H; ++y)
-    {
-      for (int x = 0; x < W; ++x)
-      {
-        if ((x + y) % 2 == 0)
-        {
+    for (int y = 0; y < height; ++y) {
+      for (int x = 0; x < width; ++x) {
+        if ((x + y) % 2 == 0) {
           std::cout << "#";
-        }
-        else
-        {
+        } else {
           std::cout << ".";
         }
       }
