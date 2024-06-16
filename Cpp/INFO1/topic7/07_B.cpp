@@ -6,17 +6,14 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int x;
   std::cin >> x;
 
-  if (x > 0)
-  {
+  if (x > 0) {
     std::cout << "yes" << std::endl;
-  }
-  else
-  {
+  } else {
     std::cout << "no" << std::endl;
   }
 

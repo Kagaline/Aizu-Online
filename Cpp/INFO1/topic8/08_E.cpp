@@ -6,15 +6,13 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int n;
   std::cin >> n;
 
-  for (int i = 0; i < n; ++i)
-  {
-    for (int j = 0; j < n; ++j)
-    {
+  for (int y = 0; y < n; ++y) {
+    for (int x = 0; x < n; ++x) {
       std::cout << "#";
     }
     std::cout << std::endl;

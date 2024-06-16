@@ -6,8 +6,8 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int n;
   std::cin >> n;
 
@@ -16,18 +16,17 @@ int main(void)
   int q;
   std::cin >> q;
 
-  for (int i = 0; i < q; i++)
-  {
-    int l, r;
-    std::cin >> l >> r;
-    for (int j = l; j <= r; j++)
-    {
+  for (int i = 0; i < q; i++) {
+
+    int first, last;
+    std::cin >> first >> last;
+
+    for (int j = first; j <= last; j++) {
       vec.at(j) += 1;
     }
   }
 
-  for (int i = 0; i < n; i++)
-  {
+  for (int i = 0; i < n; i++) {
     std::cout << vec.at(i) << std::endl;
   }
 

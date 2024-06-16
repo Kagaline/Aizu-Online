@@ -6,8 +6,8 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   std::cout << "strings" << std::endl;
 
   return 0;

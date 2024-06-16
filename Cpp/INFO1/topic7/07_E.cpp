@@ -6,17 +6,15 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int a, b;
   std::cin >> a >> b;
 
-  if (a < b)
-  {
+  // a, bの小さいほうを出力. 同じ値ならbを出力.
+  if (a < b) {
     std::cout << a << std::endl;
-  }
-  else
-  {
+  } else {
     std::cout << b << std::endl;
   }
 

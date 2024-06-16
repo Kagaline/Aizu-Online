@@ -8,21 +8,20 @@
 #include <string>
 #include <vector>
 
-void print_n_c(char c, int n)
-{
-  for (int i = 0; i < n; ++i)
-  {
-    std::cout << c;
-  }
-  std::cout << std::endl;
-}
+void print_n_c(char c, int n);
 
-int main(void)
-{
+int main(void) {
   int n;
   char c;
   std::cin >> n >> c;
 
   print_n_c(c, n);
   return 0;
+}
+
+void print_n_c(char c, int n) {
+  for (int i = 0; i < n; ++i) {
+    std::cout << c;
+  }
+  std::cout << std::endl;
 }

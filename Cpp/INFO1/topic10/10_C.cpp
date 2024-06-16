@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int c;
   std::cin >> c;
 

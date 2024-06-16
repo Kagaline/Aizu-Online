@@ -8,38 +8,28 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int n;
   std::cin >> n;
 
-  std::vector<int> vec;
-  for (int i = 0; i < n; i++)
-  {
-    int x;
+  std::vector<int> vec(n, 0);
+  for (auto &x : vec) {
     std::cin >> x;
-    vec.push_back(x);
   }
 
   int key;
   std::cin >> key;
 
-  bool key_exist = false;
-  for (auto itr = vec.begin(); itr != vec.end(); itr++)
-  {
-    if (*itr == key)
-    {
-      key_exist = true;
+  for (auto itr = vec.begin(); itr != vec.end(); itr++) {
+    if (*itr == key) {
+      std::cout << "Yes" << std::endl;
+
+      return 0;
     }
   }
-  if (key_exist)
-  {
-    std::cout << "Yes" << std::endl;
-  }
-  else
-  {
-    std::cout << "No" << std::endl;
-  }
+
+  std::cout << "No" << std::endl;
 
   return 0;
 }

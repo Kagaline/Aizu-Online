@@ -6,10 +6,11 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int a;
   std::cin >> a;
+
   std::cout << a << std::endl;
 
   return 0;

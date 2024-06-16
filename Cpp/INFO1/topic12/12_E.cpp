@@ -8,19 +8,18 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int X, Y, Z;
   std::cin >> X >> Y >> Z;
 
-  // 3次元配列を定義.
+  // (X+1)×(Y+1)×(Z+1)
   std::vector<std::vector<std::vector<int>>> space(
       X + 1, std::vector<std::vector<int>>(Y + 1, std::vector<int>(Z + 1, 0)));
 
   int n;
   std::cin >> n;
-  for (int i = 0; i < n; i++)
-  {
+  for (int i = 0; i < n; i++) {
     int x, y, z;
     std::cin >> x >> y >> z;
     space.at(x).at(y).at(z) = 1;
@@ -28,8 +27,7 @@ int main(void)
 
   int q;
   std::cin >> q;
-  for (int i = 0; i < q; i++)
-  {
+  for (int i = 0; i < q; i++) {
     int x, y, z;
     std::cin >> x >> y >> z;
     std::cout << space.at(x).at(y).at(z) << std::endl;

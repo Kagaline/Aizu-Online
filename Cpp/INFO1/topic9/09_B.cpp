@@ -6,25 +6,20 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int n;
   std::cin >> n;
 
-  std::vector<int> vec;
-
-  for (int i = 0; i < n; i++)
-  {
-    int x;
+  std::vector<int> vec(n, 0);
+  for (auto &x : vec) {
     std::cin >> x;
-    vec.push_back(x);
   }
 
-  int l, r;
-  std::cin >> l >> r;
+  int first, last;
+  std::cin >> first >> last;
 
-  for (int i = l; i <= r; i++)
-  {
+  for (int i = first; i <= last; i++) {
     std::cout << vec.at(i) << std::endl;
   }
 

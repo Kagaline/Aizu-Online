@@ -6,10 +6,9 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
-  int a = 10;
-  int b = 20;
+int main(void) {
+
+  int a = 10, b = 20;
   std::cout << a << " " << b << std::endl;
 
   // swap.

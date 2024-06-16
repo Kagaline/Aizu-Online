@@ -6,23 +6,21 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int n;
   std::cin >> n;
 
   int num_elements = 0;
-  for (int i = 0; i < n; i++)
-  {
+  for (int i = 0; i < n; i++) {
+
     int x;
     std::cin >> x;
-    if (x == 0)
-    {
+
+    if (x == 0) {
       std::cout << num_elements << std::endl;
       num_elements = 0;
-    }
-    else
-    {
+    } else {
       num_elements += 1;
     }
   }

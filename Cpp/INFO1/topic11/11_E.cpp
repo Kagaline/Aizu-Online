@@ -8,8 +8,7 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
   // 入力列を読み込む.
   std::string input_stream;
   std::getline(std::cin, input_stream);
@@ -19,8 +18,7 @@ int main(void)
 
   // 空白区切りの数値に加工して出力する.
   int x;
-  while (ss_input >> x)
-  {
+  while (ss_input >> x) {
     std::cout << x + 1 << std::endl;
   }
 

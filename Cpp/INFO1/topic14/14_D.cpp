@@ -8,52 +8,43 @@
 #include <string>
 #include <vector>
 
-int binary_search(std::vector<int> array_, int key)
-{
-  int l = 0;
-  int r = array_.size();
+int binary_search(std::vector<int> &vec, int key);
 
-  while (l < r)
-  {
-    int m = (l + r) / 2;
+int main(void) {
 
-    std::cout << "[" << l << ", " << r << ")" << std::endl;
-
-    if (array_.at(m) == key)
-    {
-      break;
-      return m;
-    }
-    if (array_.at(m) < key)
-    {
-      l = m + 1;
-    }
-    else
-    {
-      r = m;
-    }
-  }
-
-  return -1;
-}
-
-int main(void)
-{
   int n;
   std::cin >> n;
 
-  std::vector<int> vec;
-  for (int i = 0; i < n; i++)
-  {
-    int x;
+  std::vector<int> vec(n, 0);
+  for (auto &x : vec) {
     std::cin >> x;
-    vec.push_back(x);
   }
 
   int key;
   std::cin >> key;
 
-  int result = binary_search(vec, key);
+  binary_search(vec, key);
 
   return 0;
+}
+
+int binary_search(std::vector<int> &vec, int key) {
+
+  int begin = 0;
+  int end = vec.size();
+
+  while (begin < end) {
+    int mid = (begin + end) / 2;
+
+    if (vec.at(mid) == key) {
+      return mid;
+    }
+    if (vec.at(mid) < key) {
+      begin = mid + 1;
+    } else {
+      end = mid;
+    }
+  }
+
+  return -1;
 }

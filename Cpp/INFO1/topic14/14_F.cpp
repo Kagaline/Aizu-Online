@@ -8,62 +8,16 @@
 #include <string>
 #include <vector>
 
-int binary_search(std::vector<int> array_, int key)
-{
-  int l = 0;
-  int r = array_.size();
+int binary_search(std::vector<int> &vec, int key);
+int linear_search(std::vector<int> &vec, int key);
 
-  while (l < r)
-  {
-    int m = (l + r) / 2;
-
-    std::cout << " " << array_.at(m);
-    if (array_.at(m) == key)
-    {
-      std::cout << std::endl;
-      return m;
-    }
-    if (array_.at(m) < key)
-    {
-      l = m + 1;
-    }
-    else
-    {
-      r = m;
-    }
-  }
-
-  std::cout << std::endl;
-  return -1;
-}
-
-int linear_search(std::vector<int> array_, int key)
-{
-  int length = array_.size();
-  for (int i = 0; i < length; i++)
-  {
-    std::cout << " " << array_.at(i);
-    if (array_.at(i) == key)
-    {
-      std::cout << std::endl;
-      return i;
-    }
-  }
-  std::cout << std::endl;
-  return -1;
-}
-
-int main(void)
-{
+int main(void) {
   int n;
   std::cin >> n;
 
-  std::vector<int> vec;
-  for (int i = 0; i < n; i++)
-  {
-    int x;
+  std::vector<int> vec(n, 0);
+  for (auto &x : vec) {
     std::cin >> x;
-    vec.push_back(x);
   }
 
   int key;
@@ -73,4 +27,48 @@ int main(void)
   binary_search(vec, key);
 
   return 0;
+}
+
+int binary_search(std::vector<int> &vec, int key) {
+
+  int begin = 0;
+  int end   = vec.size();
+
+  while (begin < end) {
+
+    const int mid = (begin + end) / 2;
+    std::cout << " " << vec.at(mid);
+
+    if (vec.at(mid) == key) {
+      std::cout << std::endl;
+      return mid;
+    }
+
+    if (vec.at(mid) < key) {
+      begin = mid + 1;
+    } else {
+      end = mid;
+    }
+  }
+
+  std::cout << std::endl;
+  return -1;
+}
+
+int linear_search(std::vector<int> &vec, int key) {
+
+  int length = vec.size();
+
+  for (int i = 0; i < length; i++) {
+
+    std::cout << " " << vec.at(i);
+
+    if (vec.at(i) == key) {
+      std::cout << std::endl;
+      return i;
+    }
+  }
+
+  std::cout << std::endl;
+  return -1;
 }

@@ -7,25 +7,18 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   char c;
   std::cin >> c;
 
-  if ('0' <= c && c <= '9')
-  {
+  if ('0' <= c && c <= '9') {
     std::cout << "digit" << std::endl;
-  }
-  else if ('a' <= c && c <= 'z')
-  {
+  } else if ('a' <= c && c <= 'z') {
     std::cout << "lower" << std::endl;
-  }
-  else if ('A' <= c && c <= 'Z')
-  {
+  } else if ('A' <= c && c <= 'Z') {
     std::cout << "upper" << std::endl;
-  }
-  else
-  {
+  } else {
     std::cout << "other" << std::endl;
   }
 

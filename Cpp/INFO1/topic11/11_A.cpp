@@ -7,18 +7,16 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   std::vector<std::string> words;
 
-  std::string input;
-  while (std::cin >> input)
-  {
-    words.push_back(input);
+  std::string input_word;
+  while (std::cin >> input_word) {
+    words.push_back(input_word);
   }
 
-  for (auto itr = words.begin(); itr != words.end(); itr++)
-  {
+  for (auto itr = words.begin(); itr != words.end(); itr++) {
     std::cout << *itr << std::endl;
   }
 

@@ -6,23 +6,21 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
-  int n;
-  std::cin >> n;
+int main(void) {
 
-  int t;
-  std::cin >> t;
+  int n, t;
+  std::cin >> n >> t;
 
-  int sum_of = 0;
-  for (int i = 0; i < n; ++i)
-  {
+  int total = 0;
+  for (int i = 0; i < n; ++i) {
+
     int x;
     std::cin >> x;
-    sum_of += x;
-    if (sum_of >= t)
-    {
-      std::cout << sum_of << std::endl;
+
+    total += x;
+
+    if (total >= t) {
+      std::cout << total << std::endl;
       break;
     }
   }

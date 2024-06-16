@@ -7,11 +7,12 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   char c;
   std::cin >> c;
 
   std::cout << c << std::endl;
+
   return 0;
 }

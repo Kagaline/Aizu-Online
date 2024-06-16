@@ -7,13 +7,12 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   std::string s;
   std::cin >> s;
 
-  for (int i = 0; i < s.size(); i++)
-  {
+  for (int i = 0; i < s.size(); i++) {
     std::cout << s.at(i) << std::endl;
   }
 

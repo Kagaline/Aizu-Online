@@ -6,13 +6,12 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int x;
   std::cin >> x;
 
-  if (x > 0)
-  {
+  if (x > 0) {
     std::cout << "Yes" << std::endl;
   }
   return 0;

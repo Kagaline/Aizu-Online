@@ -6,8 +6,8 @@
 #include <string>
 #include <vector>
 
-int main(void)
-{
+int main(void) {
+
   int a, b, c, d;
   std::cin >> a >> b >> c >> d;
 
